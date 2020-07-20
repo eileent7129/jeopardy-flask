@@ -17,4 +17,12 @@ app.secret_key = b'HO\xf8\xff+\n\x1e\\~/;}'
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    session["name"] = "Anoopa"
+    return render_template('index.html', question='data[0]["question"]')
+@app.route("/random")
+def jeopardy_random():
+    #Use jservice API/random to get 1 jeopardy clue
+    return render_template("jeopardy.py")
+
+# def index():
+    # return render_template('index.html', question='data[0]["question"]')
